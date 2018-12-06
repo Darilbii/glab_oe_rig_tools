@@ -22,6 +22,7 @@ from scp import SCPClient
 ## With code from Zeke Arneodo ##
 #################################
 
+#TODO: Document Code
 
 def parse_command(cmd_str):
     """
