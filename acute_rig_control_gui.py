@@ -30,7 +30,8 @@ from scp import SCPClient
 # TODO: Document Code
 
 def parse_command(cmd_str):
-    """
+    """ Main function that takes a string and breaks it into key/value pairs using a space as a deliminator
+
     # the line has one word for the command and n pairs that go to key, value (separator is space)
     :param cmd_str: string with name of command and pairs of params and values
     :return: cmd : str (name of the command)
@@ -45,6 +46,7 @@ def parse_command(cmd_str):
 
 class OpenEphysEvents:
     """
+    reference: https://open-ephys.atlassian.net/wiki/display/OEW/Network+Events
 
     """
 
@@ -65,6 +67,7 @@ class OpenEphysEvents:
         self.socket.connect(url)
 
     def start_acq(self, ):
+        """Start data acquisition on OpenEphysGui"""
         if self.query_status('Acquiring'):
             print('Already acquiring')
         else:
@@ -75,6 +78,7 @@ class OpenEphysEvents:
                 print('Something went wrong starting acquisition')
 
     def stop_acq(self, ):
+        """Stops data acquisition on OpenEphysGui"""
         if self.query_status('Recording'):
             print('Cant stop acquistion while recording')
 
